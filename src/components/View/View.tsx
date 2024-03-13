@@ -77,6 +77,7 @@ const View = (props: IViewProps) => {
         cookieCategories,
         cookieCategories
       );
+      setSelection(cookieCategories)
       // when no array of cookie categories was given
     } else if (all && !cookieCategories) {
       cookieObj = CookieUtil.createCookieObj(["all"], ["all"]);
@@ -97,6 +98,7 @@ const View = (props: IViewProps) => {
     } else {
       CookieUtil.writeCookies(CookieUtil.createCookieObj([], ["all"]));
     }
+    setSelection([]);
     buttonClick(onDecline);
   }
 

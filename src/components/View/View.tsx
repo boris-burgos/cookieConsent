@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import {Dispatch, SetStateAction, useMemo, useState} from "react";
 import { BaseButton, FlexDiv } from "../styledComponents";
 import ButtonGroup, { IButtonGroupProps } from "../ButtonGroup";
 import {
@@ -21,9 +21,13 @@ interface IViewProps extends ICookieConsentProps {
 type TButtonClickCallback = (() => void) | undefined;
 
 const View = (props: IViewProps) => {
+  const initialSelection = useMemo(() => {
+    const data = CookieUtil.readCookies() || {}
+    return Object.keys(data).filter(k => data[k])
+  }, [])
   //states
   const [showMangeView, setShowManageView] = useState(false),
-    [selection, setSelection] = useState<string[]>([]),
+    [selection, setSelection] = useState<string[]>( initialSelection),
     // gettinh the states set method from the parent passed down as prop
     setShow = props.setShow,
     // property constants

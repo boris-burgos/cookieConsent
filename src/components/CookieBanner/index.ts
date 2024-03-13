@@ -1,1 +1,2 @@
-export { default } from "./CookieBanner";
+export * from "./CookieBanner";
+export * from "./ManualCookieBanner"

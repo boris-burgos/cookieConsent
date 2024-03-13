@@ -1,26 +1,12 @@
-import View from "../View";
-import { TextWrapper, Banner } from "../styledComponents";
-import { useShowCookieConsent } from "../../util/useShowCC";
+import {useShowCookieConsent} from "../../util/useShowCC";
+import {ICookieConsentProps} from "../globalTypes";
+import {ManualCookieBanner} from "./ManualCookieBanner";
 
-import { ICookieConsentProps } from "../globalTypes";
-
-const CookieBanner = (props: ICookieConsentProps) => {
-  const { headingColor, paragraphColor, containerStyle } = props;
-
+export const CookieBanner = (props: ICookieConsentProps) => {
   const [show, setShow] = useShowCookieConsent();
 
   return (
-    <Banner style={containerStyle} show={show}>
-
-        <TextWrapper
-          headingColor={headingColor}
-          paragraphColor={paragraphColor}
-        >
-          <View {...props} setShow={setShow} type="banner" />
-        </TextWrapper>
-
-    </Banner>
+    <ManualCookieBanner {...props} show={show} setShow={setShow}/>
   );
 };
 
-export default CookieBanner;

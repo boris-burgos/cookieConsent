@@ -37,7 +37,7 @@ declare const CookieModal: (props: ICookieConsentProps) => JSX.Element;
 declare const ManualCookieModal: (props: ICookieConsentProps & {
     show: boolean;
     setShow: Dispatch<SetStateAction<boolean>>;
-}) => JSX.Element;
+}) => JSX.Element | null;
 
 declare const CookieBanner: (props: ICookieConsentProps) => JSX.Element;
 

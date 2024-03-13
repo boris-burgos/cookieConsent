@@ -23,6 +23,10 @@ export const ManualCookieModal = (props: ICookieConsentProps & {
 }) => {
   const {headingColor, paragraphColor, containerStyle, show, setShow} = props;
 
+  if (!show) {
+    return null
+  }
+
   return (
     <Backdrop show={show}>
       <Container style={containerStyle}>

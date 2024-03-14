@@ -68,13 +68,13 @@ const ButtonGroup = (props: IButtonGroupProps) => {
 
   const InfoViewButtonGroup = () => (
     <FlexDiv flexDirection={direction} justify={"end"}>
-      <DynSecButton onClick={callbacks.decline}>
-        {declineButtonText}
-      </DynSecButton>
-      <ManagementButton />
       <DynPrimButton onClick={() => callbacks.accept(true)}>
         {acceptButtonText}
       </DynPrimButton>
+      <ManagementButton />
+      <DynSecButton onClick={callbacks.decline}>
+        {declineButtonText}
+      </DynSecButton>
     </FlexDiv>
   );
 
